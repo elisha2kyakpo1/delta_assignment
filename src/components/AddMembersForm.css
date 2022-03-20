@@ -5,15 +5,41 @@
 }
 
 .contain {
-  position: relative;
+  position: absolute;
   margin: 0 auto;
   width: 65%;
-  background-color: rgba(255,255,255,0.2);
+  top: 50%;
+  left: 0;
+  right: 0;
+  box-shadow:
+  0 0.46875rem 2.1875rem rgb(4 9 20 / 3%),
+  0 0.9375rem 1.40625rem rgb(4 9 20 / 3%),
+  0 0.25rem 0.53125rem rgb(4 9 20 / 5%),
+  0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+  border-radius: 8px;
+  background-color: whitesmoke;
   padding: 35px;
-  border: 2px solid rgb(112, 110, 110);
+  border: 2px solid rgb(248, 244, 244);
   border-radius: 10px;
   transition: all 5s ease-in-out;
   z-index: 5;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
+.cancel {
+  border: 1px solid skyblue;
+  margin-right: 5px;
+}
+
+.submit {
+  justify-content: flex-end;
+}
+
+.btn-form {
+  display: inline-block;
 }
 
 .form label {
@@ -28,14 +54,8 @@
   right: 0;
   background: rgba(0, 0, 0, 0.7);
   transition: opacity 500ms;
-  /* visibility: hidden; */
   opacity: 0;
 }
-
-/* .overlay:target {
-  visibility: visible;
-  opacity: 1;
-} */
 
 .contain .close {
   position: absolute;
@@ -47,7 +67,7 @@
   text-decoration: none;
   color: #333;
   border: none;
-  background-color: #fff;
+  background-color: rgb(248, 244, 244);
 }
 
 .popup .close:hover {

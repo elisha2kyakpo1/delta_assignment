@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState} from 'react';
 import './AddMembersForm.css';
 
 const AddMembersForm = () => {
+  const [closeForm, setClose] = useState(false);
+  let form;
+  if (closeForm) {
+    form = <div className="">
+      <AddMembersForm />
+    </div>
+  }
   return (
-    <div className='overlay'>
+    <div className='overla'>
 
     <div className="outter_container d-flex">
       <div className="contain popup">
-      <button className='close'>&times;</button>
+      <button  className='close'>&times;</button>
         <form className="form">
           <h6>Add members</h6>
           <div className="form-group">
@@ -26,7 +33,10 @@ const AddMembersForm = () => {
             <label htmlFor="notes">Notes</label>
             <textarea className="form-control" id="notes" name="Notes" />
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <div className='d-flex submit mt-2'>
+          <button type="submit" className="btn btn-white text-primary cancel">Cancel</button>
+          <button type="submit" className="btn btn-primary">Save</button>
+          </div>
         </form>
       </div>
     </div>
@@ -34,4 +44,4 @@ const AddMembersForm = () => {
   );
 }
 
-export default AddMembersForm
+export default AddMembersForm;

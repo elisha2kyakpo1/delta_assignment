@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector} from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import {FaTrash} from 'react-icons/fa'
 import AddMembersForm from './AddMembersForm';
 import './Members.css';
 
 const Members = () => {
+  const members = useSelector((state) => state.MembersReducer);
   const [displayAddMember, setAddMemberForm] = useState(false);
   const categories = ['Development', 'Software', 'Mechanical', 'Chemical', 'LifeStyle'];
 
@@ -12,17 +14,19 @@ const Members = () => {
 
   let form;
   if (displayAddMember) {
-    form = <div className="">
+    form = <div className="add-member">
       <AddMembersForm />
     </div>
   }
   return (
     <div className='mt-3 mx-5'>
-      <nav className='d-flex'>
-        <h2>Team Members</h2>
-        <Button onClick={() => setAddMemberForm(!displayAddMember)}>Add members<span className='ml-2 text-l'>+</span></Button>
-        { form }
-      </nav>
+      <header>
+        <nav className=''>
+          <h2>Team Members</h2>
+          <Button className='btn-form' onClick={() => setAddMemberForm(!displayAddMember)}>Add members<span className='ml-2 text-l'>+</span></Button>
+          { form }
+        </nav>
+      </header>
       <main>
         <div>
           <div className='d-flex mt-5'>
@@ -33,11 +37,11 @@ const Members = () => {
             </select>
             <select className="selection ml-2" name="category" onChange={(category) => setCategory(category.target.value)}>
               {categories.map((category) => (
-                <option className="options" key={category} value={category}>{category}(0)</option>
+                <option className="options" key={category} value={category}>{category}</option>
               ))}
             </select>
           </div>
-          <table class="table table-striped">
+          <table className="table table-striped">
            
             <thead>
               <tr>
@@ -49,15 +53,17 @@ const Members = () => {
               </tr>
             </thead>
             <tbody>
-              
-              <tr>
-                <td><input type="checkbox" name="name1" />&nbsp;someone</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><FaTrash /></td>
-              </tr>
+              {members.map((member) => (
+                <tr key={member.id}>
+                  <td><input type="checkbox" name="name1" />&nbsp;someone</td>
+                  <td>{member.name}</td>
+                  <td>{member.company}</td>
+                  <td>{member.status}</td>
+                  <td>{member.last_updated}</td>
+                  <td>{member.notes}</td>
+                  <td><FaTrash /></td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -66,4 +72,4 @@ const Members = () => {
   )
 }
 
-export default Members
+export default Members;
