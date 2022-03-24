@@ -3,18 +3,12 @@ import './AddMembersForm.css';
 
 const AddMembersForm = () => {
   const [closeForm, setClose] = useState(false);
-  let form;
-  if (closeForm) {
-    form = <div className="">
-      <AddMembersForm />
-    </div>
-  }
   return (
     <div className='overla'>
 
     <div className="outter_container d-flex">
       <div className="contain popup">
-      <button  className='close'>&times;</button>
+        <button  className='close' onClick={() => setClose(closeForm)}>&times;</button>
         <form className="form">
           <h6>Add members</h6>
           <div className="form-group">
