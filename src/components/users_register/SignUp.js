@@ -80,7 +80,7 @@ const SignUp = () => {
             </Button>
             <div className="signup-div d-flex">
               <p>Already a member?</p>
-              <Card.Link className="ml-2" href="/sign_in">Sign in</Card.Link>
+              <Card.Link className="ml-2">Sign in</Card.Link>
             </div>
           </Form>
         </div>
