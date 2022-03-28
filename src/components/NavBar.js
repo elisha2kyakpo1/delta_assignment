@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
 function NavBar() {
   return (
     <nav>
       <div className="links">
-        <Link to="/">Home |</Link>
-        <Link to="/sign_in">Sign in |</Link>
-        <Link to="/sign_up">Sign up</Link>
+        <NavLink to="/">Home |</NavLink>
+        <NavLink to="/sign_in">Sign in |</NavLink>
+        <NavLink to="/sign_up">Sign up</NavLink>
       </div>
     </nav>
   );

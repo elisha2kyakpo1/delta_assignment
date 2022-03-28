@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './Users.css'
 
 async function loginUser(credentials) {
@@ -13,7 +12,7 @@ async function loginUser(credentials) {
   .then(data => data.json())
 }
 
-const SignIn = ({ setToken }) => {
+const SignIn = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -23,7 +22,6 @@ const SignIn = ({ setToken }) => {
       email,
       password
     });
-    setToken(token);
   }
 
   return (
@@ -59,10 +57,6 @@ const SignIn = ({ setToken }) => {
       </div>
     </form>
   );
-}
-
-SignIn.propTypes = {
-  setToken: PropTypes.func.isRequired
-}
+};
 
 export default SignIn;
