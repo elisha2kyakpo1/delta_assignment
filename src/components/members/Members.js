@@ -22,7 +22,7 @@ const Members = () => {
     <div className='mt-3 mx-5'>
       <header>
         <nav className=''>
-          <h2>Team Members</h2>
+          <h2 className='title'>Team Members</h2>
           <Button className='btn-form' onClick={() => setAddMemberForm(!displayAddMember)}>Add members<span className='ml-2 text-l'>+</span></Button>
           { form }
         </nav>

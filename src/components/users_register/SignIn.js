@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form, Button, Card } from 'react-bootstrap';
 import './Users.css'
 
 async function loginUser(credentials) {
@@ -25,37 +26,47 @@ const SignIn = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="container mt-5">
-      <div className="header pl-5">
-        Login
-      </div>
-      <div className="box">
+    <section onSubmit={handleSubmit} className="login">
+      <div className="inner-log">
+        <div className="container">
+          <div className="inner">
+            <h1>Sign In</h1>
+          </div>
+          <Form className="form">
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                className="input"
+                type="email"
+                placeholder="Enter email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+            </Form.Group>
 
-        <div className="input-group">
-          <input onChange={e => setEmail(e.target.value)}
-            type="email"
-            name="email"
-            className="login-input form-control"
-            placeholder="enter your email"/>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                className="input"
+                type="password"
+                placeholder="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </Form.Group>
+            <Button className="submit" variant="primary" type="submit">
+              Submit
+            </Button>
+            <div className="signup-div d-flex">
+              <p>Don't have account?</p>
+              <Card.Link href="/sign_up" className="ml-2">Sign Up</Card.Link>
+            </div>
+          </Form>
         </div>
-
-        <div className="input-group mt-2">
-          <input
-            onChange={e => setPassword(e.target.value)}
-            type="password"
-            name="password"
-            className="login-input form-control"
-            placeholder="enter your Password"/>
-        </div>
-
-        <button
-          type="button"
-          className="btn btn-primary mt-2"
-        >
-        Login
-        </button>
       </div>
-    </form>
+    </section>
   );
 };
 
